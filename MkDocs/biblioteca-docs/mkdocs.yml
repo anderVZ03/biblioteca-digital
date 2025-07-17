@@ -1,11 +1,18 @@
 site_name: Biblioteca Docs
 nav:
   - Inicio: index.md
-  - Usuario: ./apis/usuario.md
-  - Catalogo: ./apis/catalogo.md
-  - Prestamo: ./apis/prestamo.md
-  - Arquitectura: ./apis/capturas.md
-  - Faas: ./apis/faas.md
+  - Configuración:
+      - Base de Datos: configuracion/base-datos.md
+      - Tecnologías: configuracion/tecnologias.md
+  - Implementación:
+      - Catalogo: implementacion/catalogo.md
+      - Usuario: implementacion/usuario.md
+      - Prestamo: implementacion/prestamo.md
+      - Frontend: implementacion/frontend.md
+      - Funciones Automatizadas: implementacion/faas.md
+  - Despliegue:
+      - Docker Compose: despliegue/docker-compose.md
+      - MkDocs: despliegue/mkdocs.md
 theme:
   name: material
   language: es
