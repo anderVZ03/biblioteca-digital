@@ -1,0 +1,70 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: biblioteca-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: biblioteca
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "3306:3306"
+
+  catalogo:
+    build: ./catalogo
+    container_name: biblioteca-catalogo
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=biblioteca
+    depends_on:
+      - db
+
+  usuario:
+    build: ./usuario
+    container_name: biblioteca-usuario
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=biblioteca
+    depends_on:
+      - db
+
+  prestamo:
+    build: ./prestamo
+    container_name: biblioteca-prestamo
+    restart: unless-stopped
+    ports:
+      - "3002:3002"
+    environment:
+      - DB_HOST=db
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=biblioteca
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "4000:4000"
+
+  faas:
+    build: ./faas
+    depends_on:
+      - db
+    env_file:
+      - ./faas/.env
+
+volumes:
+  db_data:

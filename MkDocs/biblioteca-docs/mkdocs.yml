@@ -1,0 +1,34 @@
+site_name: Biblioteca Docs
+nav:
+  - Inicio: index.md
+  - Usuario: ./apis/usuario.md
+  - Catalogo: ./apis/catalogo.md
+  - Prestamo: ./apis/prestamo.md
+  - Arquitectura: ./apis/capturas.md
+  - Faas: ./apis/faas.md
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+    - toc.integrate
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - attr_list
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.emoji
+
+extra_css:
+  - stylesheets/extra.css
