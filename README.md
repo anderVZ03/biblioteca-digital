@@ -92,15 +92,3 @@ Ya está configurado para ignorar archivos temporales, entornos virtuales, módu
 - El `frontend` es un cliente simple HTML/JS para interactuar con los microservicios.
 
 ---
-
-## ✨ Créditos
-
-Desarrollado por [Anderson Velásquez](https://github.com/tu-usuario) y colaboradores.
-
----
-
-## 📬 Contacto
-
-¿Sugerencias, errores o ideas? Abre un issue o contáctame por GitHub.
-
----
