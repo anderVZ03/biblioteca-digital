@@ -16,6 +16,7 @@ nav:
   - Capturas: capturas.md
 theme:
   name: material
+  custom_dir: overrides
   language: es
   font:
     text: Reboto
@@ -43,3 +44,10 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+plugins:
+  - search
+  # - pdf-export
+
+repo_name: Biblioteca digital
+repo_url: https://github.com/anderVZ03/biblioteca-digital.git
