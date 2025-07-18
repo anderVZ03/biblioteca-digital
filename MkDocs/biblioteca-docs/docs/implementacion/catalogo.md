@@ -46,3 +46,26 @@ Consulta todos los libros registrados en el sistema.
   }
 ]
 ```
+# 🐳 Dockerfile para Catalogo Node.js
+
+Este `Dockerfile` permite crear una imagen Docker para el microservicio de **catálogos** desarrollado en Node.js. Su objetivo es facilitar la construcción, despliegue y ejecución del servicio en un contenedor aislado y portable.
+
+---
+
+## 📄 Contenido del Dockerfile
+
+```Dockerfile
+FROM node:22
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY index.js .
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
+```
