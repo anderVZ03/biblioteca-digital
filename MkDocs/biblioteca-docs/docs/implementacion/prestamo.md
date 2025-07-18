@@ -37,6 +37,7 @@ Registra un nuevo préstamo de un libro a un usuario.
   "fecha_devolucion": "2025-07-17"
 }
 ```
+
 ### Consultar Historial de Préstamos
 
 **POST** `/historial`
