@@ -22,7 +22,7 @@ El servicio utiliza las siguientes variables de entorno para conectarse a la bas
 
 ## 🚀 Endpoints
 
-### 1. Registrar Préstamo
+### Registrar Préstamo
 
 **POST** `/prestamos`
 
@@ -36,4 +36,40 @@ Registra un nuevo préstamo de un libro a un usuario.
   "id_libro": 2,
   "fecha_devolucion": "2025-07-17"
 }
+```
+### Consultar Historial de Préstamos
+
+**POST** `/historial`
+
+Obtiene el historial de préstamos de un usuario ordenado por fecha de devolución.
+
+- **Body JSON requerido:**
+
+```json
+{
+  "id_usuario": 1
+}
+```
+# 🐳 Dockerfile para el Servicio de Préstamos
+
+Este `Dockerfile` define cómo construir la imagen Docker para el microservicio de **préstamos** de la Biblioteca Digital. Permite encapsular la aplicación en un contenedor ligero y reproducible.
+
+---
+
+## 📄 Contenido del Dockerfile
+
+```Dockerfile
+FROM node:22
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY index.js .
+
+EXPOSE 3002
+
+CMD ["node", "index.js"]
 ```
