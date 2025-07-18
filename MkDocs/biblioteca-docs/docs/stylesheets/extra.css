@@ -1,0 +1,31 @@
+/* Redondear tarjetas y cajas */
+.md-typeset .admonition, .md-typeset details {
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.md-typeset h1{
+    color: #000000;
+}
+/* Mejorar contraste de código */
+code, pre {
+  background-color: #f5f5f5 !important;
+  color: #000 !important;
+}
+
+/* Cambiar color de títulos */
+h1, h2, h3 {
+  color: #393939;
+}
+
+/* Quitar tanta caja cuadrada */
+.md-content {
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+}
+
+/* Fondo más suave para el dark mode */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #202124;
+}

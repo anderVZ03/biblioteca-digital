@@ -13,9 +13,13 @@ nav:
   - Despliegue:
       - Docker Compose: despliegue/docker-compose.md
       - MkDocs: despliegue/mkdocs.md
+  - Capturas: capturas.md
 theme:
   name: material
   language: es
+  font:
+    text: Reboto
+    code: Fira Code
   features:
     - navigation.instant
     - navigation.tabs

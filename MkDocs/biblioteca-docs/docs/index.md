@@ -19,5 +19,6 @@ Bienvenido a la documentación técnica del proyecto **Biblioteca Digital**, des
 
 ## 🚀 ¿Cómo levantar el proyecto?
 
-
+```
 docker-compose up --build
+```
