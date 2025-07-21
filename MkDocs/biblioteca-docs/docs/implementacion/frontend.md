@@ -3,8 +3,11 @@
 ## 🏗️ Estructura de archivos
 
 public/
+
 ├── index.html    # Estructura principal
+
 ├── style.css     # Estilos CSS
+
 └── script.js     # Lógica de la aplicación
 
 ## 🔌 Endpoints consumidos
