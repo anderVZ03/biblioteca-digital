@@ -1,2 +1,1 @@
-python.exe -m venv env
-pip install mkdocs
+mkdocs-material
