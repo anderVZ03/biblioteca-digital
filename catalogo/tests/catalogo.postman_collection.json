@@ -1,0 +1,12 @@
+{
+  "info": { "name": "Pruebas Catálogo", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    {
+      "name": "Obtener libros",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:3000/libros", "host": ["localhost"], "port": "3000", "path": ["libros"] }
+      }
+    }
+  ]
+}
