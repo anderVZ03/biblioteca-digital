@@ -1,0 +1,53 @@
+name: Pruebas Automatizadas
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test-suite:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Levantar servicios
+        run: docker-compose up -d
+
+      - name: Esperar 10 segundos
+        run: sleep 10
+
+      - name: Instalar Newman
+        run: npm install -g newman newman-reporter-html newman-reporter-json
+
+      - name: Pruebas catálogo
+        run: |
+          newman run catalogo/tests/catalogo.postman_collection.json \
+            -r cli,html,json \
+            --reporter-html-export catalogo/tests/report.html \
+            --reporter-json-export catalogo/tests/report.json
+
+      - name: Pruebas usuario
+        run: |
+          newman run usuario/tests/usuario.postman_collection.json \
+            -r cli,html,json \
+            --reporter-html-export usuario/tests/report.html \
+            --reporter-json-export usuario/tests/report.json
+
+      - name: Pruebas préstamo
+        run: |
+          newman run prestamo/tests/prestamo.postman_collection.json \
+            -r cli,html,json \
+            --reporter-html-export prestamo/tests/report.html \
+            --reporter-json-export prestamo/tests/report.json
+
+      - name: Subir artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportes
+          path: |
+            catalogo/tests/report.html
+            usuario/tests/report.html
+            prestamo/tests/report.html

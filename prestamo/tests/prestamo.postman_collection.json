@@ -1,0 +1,17 @@
+{
+  "info": { "name": "Pruebas Préstamo", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    {
+      "name": "Obtener historial",
+      "request": {
+        "method": "POST",
+        "url": { "raw": "http://localhost:3002/historial", "host": ["localhost"], "port": "3002", "path": ["historial"] },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id_usuario\": 1\n}"
+        }
+      }
+    }
+  ]
+}
