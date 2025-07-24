@@ -1,0 +1,97 @@
+- name: Crear y desplegar app en CT Debian 12
+  hosts: localhost
+  gather_facts: false
+  vars:
+    vmid: 150
+    node: NAC-interna
+    vm_name: vm-biblioteca
+    vm_ip: 192.168.221.150/24
+    vm_ip_limpia: 192.168.221.150
+    vm_gateway: 192.168.221.128
+    storage: local-lvm
+    template: debian-12-standard_12.7-1_amd64
+    ct_user: root
+    ssh_pub_key: "{{ lookup('file', '~/.ssh/id_rsa_ansible.pub') }}"
+
+  tasks:
+    - name: Crear contenedor LXC desde plantilla
+      community.general.proxmox:
+        api_user: root@pam
+        api_password: **********
+        api_host: 192.168.221.128
+        node: "{{ node }}"
+        vmid: "{{ vmid }}"
+        hostname: "{{ vm_name }}"
+        ostemplate: "local:vztmpl/{{ template }}.tar.zst"
+        storage: "{{ storage }}"
+        cores: 4
+        memory: 4096
+        netif:
+          net0: "name=eth0,bridge=vmbr1,ip={{ vm_ip }},gw={{ vm_gateway }}"
+        unprivileged: false
+        pubkey: "{{ ssh_pub_key }}"
+        state: present
+        password: **********
+        timeout: 300
+        features:
+          - keyctl=1
+          - nesting=1
+
+    - name: Encender contenedor
+      community.general.proxmox:
+        api_user: root@pam
+        api_password: **********
+        api_host: 192.168.221.128
+        node: "{{ node }}"
+        vmid: "{{ vmid }}"
+        state: started
+
+    - name: Esperar SSH activo
+      wait_for:
+        host: "{{ vm_ip_limpia }}"
+        port: 22
+        delay: 10
+        timeout: 300
+        state: started
+
+    - name: Instalar Docker en la VM
+      become: true
+      ansible.builtin.shell: |
+        apt update
+        apt install -y docker.io docker-compose
+        exit 0
+      delegate_to: "{{ vm_ip_limpia }}"
+
+    - name: Asegurarse que docker está activo
+      become: true
+      ansible.builtin.shell: |
+        systemctl enable docker
+        systemctl start docker
+      delegate_to: "{{ vm_ip_limpia }}"
+
+    - name: Crear carpeta para la app
+      become: true
+      delegate_to: "{{ vm_ip_limpia }}"
+      file:
+        path: "/home/{{ vm_name }}/app"
+        state: directory
+        owner: "{{ ct_user }}"
+        group: "{{ ct_user }}"
+        mode: '0755'
+
+    - name: Copiar contenido del proyecto
+      delegate_to: "{{ vm_ip_limpia }}"
+      copy:
+        src: ./  # Asegúrate de que estás en la raíz del proyecto con docker-compose.yml
+        dest: "/home/{{ vm_name }}/app/"
+        owner: "{{ ct_user }}"
+        group: "{{ ct_user }}"
+        mode: '0755'
+
+    - name: Levantar la app con docker-compose
+      become: true
+      become_user: "{{ ct_user }}"
+      delegate_to: "{{ vm_ip_limpia }}"
+      shell: docker-compose up -d
+      args:
+        chdir: "/home/{{ vm_name }}/app/"

@@ -14,6 +14,10 @@ nav:
       - Docker Compose: despliegue/docker-compose.md
       - MkDocs: despliegue/mkdocs.md
   - Capturas: capturas.md
+  - Pruebas:
+      - Plan de pruebas: tests/plan-pruebas.md
+      - Informe QA: tests/informe-qa.md
+      - MARC 21: tests/informe-marc21.md
 theme:
   name: material
   custom_dir: overrides
@@ -50,4 +54,6 @@ plugins:
   # - pdf-export
 
 repo_name: Biblioteca digital
+
 repo_url: https://github.com/anderVZ03/biblioteca-digital.git
+
