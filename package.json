@@ -1,0 +1,25 @@
+{
+  "name": "biblioteca-digital",
+  "version": "1.0.0",
+  "description": "Bienvenido a **Biblioteca Digital**, un sistema distribuido basado en microservicios que gestiona operaciones de catálogo, préstamos, usuarios, funciones automatizadas (FaaS) y una interfaz web sencilla. Además, incluye su propia documentación técnica generada con MkDocs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anderVZ03/biblioteca-digital.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anderVZ03/biblioteca-digital/issues"
+  },
+  "homepage": "https://github.com/anderVZ03/biblioteca-digital#readme",
+  "devDependencies": {
+    "newman": "^4.6.1",
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-json": "^1.0.0"
+  }
+}
