@@ -32,6 +32,7 @@ Una vez autenticado, el usuario accede al catálogo de libros disponibles.
 
 Se realiza una solicitud de préstamo para uno de los libros del catálogo, que está configurado para que siempre se tenga la fecha de devolución del libro al día siguiente de modo que facilita la comprobación de la función FaaS con el envío del correo de recordatorio de devolución.
 
+
 ![Préstamo de libro](assets/prestamo_libro.png)
 
 ---
