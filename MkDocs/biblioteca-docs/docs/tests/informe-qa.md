@@ -55,36 +55,21 @@ Workflow usado: .github/workflows/tests.yml
 
 📷 Capturas:
 
-![Reporte Catálogo](assets/pruebaCatalogo.png)
-![Workflow exitoso](../capturas/github-actions-ok.png)
+![Reporte Catálogo](../assets//workflow_catalogo.png)
+![Workflow exitoso](../assets//workflow_catalogo.png)
 
-![Reporte Catálogo](assets/pruebaPrestamo.png)
-![Workflow exitoso](../capturas/github-actions-ok.png)
+![Reporte Prestamo](../assets//pruebasPrestamo.png
+![Workflow exitoso](../assets//workflow_prestamos.png)
 
-![Reporte Catálogo](assets/pruebaUsuario.png)
-![Workflow exitoso](../capturas/github-actions-ok.png)
+![Reporte Usuario](../assets//pruebaUsuario.png)
+![Workflow exitoso](../assets//workflow_usuario.png)
 
 > Las capturas fueron tomadas directamente desde la vista del reporte generado por Newman y la interfaz de GitHub.
 
 ---
-
-## 🧠 Hallazgos
 
 * Todas las pruebas se completaron correctamente sin errores.
 * Los tiempos de respuesta fueron inferiores a 300 ms en promedio.
 * El endpoint de login devuelve correctamente códigos 401 si la contraseña es inválida.
 
 ---
-
-## 🛠️ Recomendaciones de mejora
-
-1. Añadir pruebas negativas (credenciales inválidas, datos mal formateados).
-2. Implementar validación de estructura JSON en las respuestas (con Ajv).
-3. Ampliar pruebas para escenarios borde: campos vacíos, usuarios inexistentes, etc.
-
----
-
-📅 Informe elaborado por: \[Tu nombre o grupo]
-🗓️ Fecha: \[Fecha de ejecución del workflow]
-
-────────────────────────────────
