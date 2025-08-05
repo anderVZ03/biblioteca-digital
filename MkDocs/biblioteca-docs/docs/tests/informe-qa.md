@@ -58,7 +58,7 @@ Workflow usado: .github/workflows/tests.yml
 ![Reporte Catálogo](../assets//workflow_catalogo.png)
 ![Workflow exitoso](../assets//workflow_catalogo.png)
 
-![Reporte Prestamo](../assets//pruebasPrestamo.png
+![Reporte Prestamo](../assets//pruebasPrestamo.png)
 ![Workflow exitoso](../assets//workflow_prestamos.png)
 
 ![Reporte Usuario](../assets//pruebaUsuario.png)
@@ -73,3 +73,5 @@ Workflow usado: .github/workflows/tests.yml
 * El endpoint de login devuelve correctamente códigos 401 si la contraseña es inválida.
 
 ---
+
+

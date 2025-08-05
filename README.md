@@ -84,7 +84,18 @@ Ya está configurado para ignorar archivos temporales, entornos virtuales, módu
 
 ---
 
-## 🧠 Notas adicionales
+## 🛡️ Auditoría de Seguridad con Lynis
+
+### 🔧 Pasos para ejecutar
+- Para ejecutar correctamente los comandos de auditoría con Lynis, es necesario usar un entorno Linux. En Windows, esto se logra instalando y utilizando **WSL (Subsistema de Windows para Linux)** con una distribución como Ubuntu ya que es necesario operar desde una consola Linux funcional dentro de Windows.
+
+```bash
+sudo bash install_lynis.sh
+```
+
+---
+
+### 🧠 Notas adicionales
 
 - Los servicios están escritos en **Node.js** (cada uno con su propio `package.json`).
 - El cron en el servicio `faas` está definido en el archivo `crontab`.
@@ -92,3 +103,5 @@ Ya está configurado para ignorar archivos temporales, entornos virtuales, módu
 - El `frontend` es un cliente simple HTML/JS para interactuar con los microservicios.
 
 ---
+
+
