@@ -1,13 +1,12 @@
 # 🛡️ Auditoría de Seguridad con Lynis – Actividad 15 (Grupo 1)
 
 ## 📦 Pasos: Clonar → Ejecutar → Validar
-
+**IMPORTANTE:** Asegurarse de que Ubuntu WSL tenga conexión a internet para realizar los pasos
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/usuario/andervz03-biblioteca-digital.git
-cd andervz03-biblioteca-digital
 
-# 2. Ejecutar el script de instalación de Lynis (obligatoriamente en entorno WSL o Linux)
+# 2. Ejecutar el script de instalación de Lynis (Solo funciona en entorno WSL o Linux)
 sudo bash install_lynis.sh
 ```
 
